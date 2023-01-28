@@ -1,14 +1,6 @@
-import {
-  List,
-  ListItem,
-  ListItemButton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { List, ListItemButton, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { assetManagementMenuList } from "./menu-list";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
 
 export default function AssetMenuResponsive({ selectedMenu }) {
   //handle Selected Menu
@@ -16,12 +8,6 @@ export default function AssetMenuResponsive({ selectedMenu }) {
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
-
-  //handle Open Collapse Menu
-  // const [open, setOpen] = useState(true);
-  // const handleClick = () => {
-  //   setOpen(!open);
-  // };
 
   //Map the All Menu
   const menuItems = assetManagementMenuList.map((menu, index) => {
@@ -44,17 +30,17 @@ export default function AssetMenuResponsive({ selectedMenu }) {
     if (menu.type === "collapse") {
       const childrenMenu = menu.children.map((children, index) => {
         return (
-          <ListItem component="div" disablePadding key={children.id}>
-            <ListItemButton
-              key={children.id}
-              selected={selectedIndex === children.id}
-              onClick={(event) => handleListItemClick(event, children.id)}
-              // href={children.url}
-              sx={{ color: "white", paddingLeft: "100px" }}
-            >
-              <Typography variant="body2">{children.title}</Typography>
-            </ListItemButton>
-          </ListItem>
+          // <ListItem component="div" disablePadding key={children.id}>
+          <ListItemButton
+            key={children.id}
+            selected={selectedIndex === children.id}
+            onClick={(event) => handleListItemClick(event, children.id)}
+            // href={children.url}
+            sx={{ color: "white", paddingLeft: "100px" }}
+          >
+            <Typography variant="body2">{children.title}</Typography>
+          </ListItemButton>
+          // </ListItem>
         );
       });
 
